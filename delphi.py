@@ -58,4 +58,4 @@ if options.execute:
     cmd = dbn+"\"select * from datascience.temp_container;\" -d rs -s data.csv"#+options.container+".csv"
     ko.run_sql(cmd)
     print("\n[5 of 5] Now it's time to run the model and calculate the long-term value")
-    ko.run_sql('R CMD BATCH --slave ../a.R out.txt')
+    ko.run_sql('R CMD BATCH --slave ../delphi.R out.txt')
