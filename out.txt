@@ -1,0 +1,15 @@
+running
+  '/usr/local/Cellar/r/3.0.2/R.framework/Versions/3.0/Resources/bin/R --slave --no-restore --no-save --no-restore --file=/Users/nick/Copy/projects/delphi/z/code/delphi/delphi.R'
+
+During startup - Warning messages:
+1: Setting LC_COLLATE failed, using "C" 
+2: Setting LC_TIME failed, using "C" 
+3: Setting LC_MESSAGES failed, using "C" 
+4: Setting LC_MONETARY failed, using "C" 
+Loading required package: proto
+[1] "/Users/nick/Copy/projects/delphi/z/code/delphi/delphi.R"
+[1] "/Users/nick/Copy/projects/delphi/z/code/delphi"
+[1] "/Users/nick/Copy/projects/delphi/z/code/delphi/delphi_functions.R"
+Error in sys.frame(1) : not that many frames on the stack
+Calls: dirname -> sys.frame
+Execution halted

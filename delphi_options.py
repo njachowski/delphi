@@ -41,7 +41,7 @@ def run_sql(cmd):
 
 def create_temp_container(filename):
     count = 0
-    cmd = "-n -q \"create table datascience.temp_container as select video_id,date_d,sum(video_play_cnt) from reporting.cl_country_video_parent where source in (\'ios\',\'android\',\'direct\') and country in (\'cl\',\'co\',\'cr\',\'mx\',\'cu\',\'do\',\'ec\',\'sv\',\'gf\',\'gt\',\'gy\',\'ht\',\'hn\',\'ni\',\'pa\',\'py\',\'pe\',\'ar\',\'bo\',\'sr\',\'uy\',\'br\',\'fk\',\'ve\',\'us\',\'ca\',\'gl\',\'gu\',\'ms\',\'pm\',\'ky\',\'mq\',\'dm\',\'gd\',\'gp\',\'jm\',\'an\',\'pr\',\'kn\',\'lc\',\'ai\',\'ag\',\'aw\',\'bs\',\'bb\',\'bz\',\'bm\',\'tt\',\'tc\',\'vg\',\'mf\',\'vi\',\'vc\') and video_id in ("
+    cmd = "\"create table datascience.temp_container as select video_id,date_d,sum(video_play_cnt) from reporting.cl_country_video_parent where source in (\'ios\',\'android\',\'direct\') and country in (\'cl\',\'co\',\'cr\',\'mx\',\'cu\',\'do\',\'ec\',\'sv\',\'gf\',\'gt\',\'gy\',\'ht\',\'hn\',\'ni\',\'pa\',\'py\',\'pe\',\'ar\',\'bo\',\'sr\',\'uy\',\'br\',\'fk\',\'ve\',\'us\',\'ca\',\'gl\',\'gu\',\'ms\',\'pm\',\'ky\',\'mq\',\'dm\',\'gd\',\'gp\',\'jm\',\'an\',\'pr\',\'kn\',\'lc\',\'ai\',\'ag\',\'aw\',\'bs\',\'bb\',\'bz\',\'bm\',\'tt\',\'tc\',\'vg\',\'mf\',\'vi\',\'vc\') and video_id in ("
     f = open(filename, 'r')
     for lines in f.readlines():
     #with open('video_id.csv') as f:

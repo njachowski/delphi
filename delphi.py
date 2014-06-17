@@ -4,7 +4,8 @@ import shutil
 import delphi_options as ko
 import subprocess
 
-dbn = 'python /Users/nick/Copy/scripts/db/db.py '
+dbn = 'python /home/analytics/nick/scripts/db/db.py '
+base_dir = '/home/analytics/nick/scripts/delphi/'
 #rs_export = 'python '+os.environ['copy']+'scripts/rs_export.py '
 
 (options, args) = ko.argsOptions() #set up options
@@ -58,4 +59,4 @@ if options.execute:
     cmd = dbn+"\"select * from datascience.temp_container;\" -d rs -s data.csv"#+options.container+".csv"
     ko.run_sql(cmd)
     print("\n[5 of 5] Now it's time to run the model and calculate the long-term value")
-    ko.run_sql('R CMD BATCH --slave ../delphi.R out.txt')
+    ko.run_sql('Rscript --no-save --no-restore --verbose '+base_dir+'/delphi.R > out.txt 2>&1')

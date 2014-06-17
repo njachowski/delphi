@@ -1,11 +1,22 @@
+#!/usr/bin/env Rscript
+# call this script with full path: 
+#Rscript --no-save --no-restore --verbose ~/Copy/projects/delphi/z/code/delphi/delphi.R > out.txt 2>&1
+
 rm(list=ls())
 library(nls2)
 library(nlstools)
 library(ggplot2)
 
-##############################
+initial.options <- commandArgs(trailingOnly = FALSE)
+file.arg.name <- "--file="
+script_file <- sub(file.arg.name, "", initial.options[grep(file.arg.name, initial.options)])
+base_dir <- dirname(script_file)
+delphi_func <- paste0(base_dir, "/delphi_functions.R")
+print(script_file)
+print(delphi_func)
 
-source('/mnt/hgfs/nick/Copy/projects/delphi/z/code/af.R')
+##############################
+source(delphi_func)
 container_id <- tail(strsplit(getwd(),split='/')[[1]],n=1)  
 vid_list=read.csv('vid_list.csv',header=T,stringsAsFactors=T)
 vid_list_detail=read.csv('vid_list_detail.csv',header=T,stringsAsFactors=T)
@@ -109,6 +120,6 @@ final_csv <- file(paste0(getwd(),"/projections.csv"), "a")
 writeLines(this_entry,con=final_csv,sep='\n')
 close(final_csv)
 
-again <- file(paste0('/mnt/hgfs/nick/Copy/projects/delphi/z/out/variety/projections/projections_',container_id,'.csv'),open="a")
+again <- file(paste0(getwd(),'/projections_',container_id,'.csv'),open="a")
 writeLines(this_entry,con=again,sep='\n')
 close(again)
