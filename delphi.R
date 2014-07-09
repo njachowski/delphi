@@ -101,8 +101,16 @@ print(this_id)
 		#}
 	} else { print('=====================================================') }
 }
+#final_bau = sum(val_bau)
+#final_avg = sum(val_avg)
+### fix NAs hopefully
+print(val_avg)
+val_bau[is.na(val_bau)] <- mean(val_bau,na.rm=TRUE)
+val_avg[is.na(val_avg)]<- mean(val_avg,na.rm=TRUE)
+print(val_avg)
 final_bau = sum(val_bau)
 final_avg = sum(val_avg)
+###
 print(max(max_y))
 print(paste0('BAU = ',format(final_bau, big.mark=',')))
 print(paste0('AVG = ',format(final_avg, big.mark=',')))
@@ -120,6 +128,10 @@ final_csv <- file(paste0(getwd(),"/projections.csv"), "a")
 writeLines(this_entry,con=final_csv,sep='\n')
 close(final_csv)
 
-again <- file(paste0(getwd(),'/projections_',container_id,'.csv'),open="a")
+#again <- file(paste0(getwd(),'/projections_',container_id,'.csv'),open="a")
+outer_dir <- paste(strsplit(getwd(),'/')[[1]][1:7],collapse='/')
+again <- file(paste0(outer_dir,'/projections_',container_id,'.csv'),open="a")
+print(outer_dir)
+print(again)
 writeLines(this_entry,con=again,sep='\n')
 close(again)
